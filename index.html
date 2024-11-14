@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="icon" type="image/png" href="images/favicon.png" />
+  <title>Shuffle</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .class-hover:hover .addtocard {
+      display: block;
+      transition: .5s;
+    }
+
+    .parent {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+    }
+    .hver-effect:hover{
+color: red;
+    }
+    .autoflex3-img{
+      display: flex;
+      flex-wrap: wrap;
+      column-gap: 16px;
+      justify-content: center;
+    }
+  </style>
+
+</head>
+
+<body>
+
+
+  <header class="bg-white">
+    <nav class="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
+      <div class="flex lg:flex-1">
+        <a href="#" class="-m-1.5 p-1.5">
+          <span class="sr-only">Your Company</span>
+          <img class="h-8 w-auto" src="images/logo-dark-a.png" alt="">
+        </a>
+      </div>
+      <div class="flex lg:hidden">
+        <button type="button" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700">
+          <span class="sr-only">Open main menu</span>
+          <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+            aria-hidden="true" data-slot="icon">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+          </svg>
+        </button>
+      </div>
+      <div class="hidden lg:flex lg:gap-x-12">
+        <div class="relative">
+          <button type="button" class="flex items-center gap-x-1 text-sm/6 font-semibold text-gray-900"
+            aria-expanded="false">
+            Product
+            <svg class="h-5 w-5 flex-none text-gray-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"
+              data-slot="icon">
+              <path fill-rule="evenodd"
+                d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z"
+                clip-rule="evenodd" />
+            </svg>
+          </button>
+
+          <!--
+                'Product' flyout menu, show/hide based on flyout menu state.
+      
+                Entering: "transition ease-out duration-200"
+                  From: "opacity-0 translate-y-1"
+                  To: "opacity-100 translate-y-0"
+                Leaving: "transition ease-in duration-150"
+                  From: "opacity-100 translate-y-0"
+                  To: "opacity-0 translate-y-1"
+              -->
+
+
+        </div>
+
+        <a href="#" class="text-sm/6 font-semibold text-gray-900">Features</a>
+        <a href="#" class="text-sm/6 font-semibold text-gray-900">Marketplace</a>
+        <a href="#" class="text-sm/6 font-semibold text-gray-900">Company</a>
+      </div>
+      <div class="hidden lg:flex lg:flex-1 lg:justify-end">
+        <a href="#" class="text-sm/6 font-semibold text-gray-900">Log in <span aria-hidden="true">&rarr;</span></a>
+      </div>
+    </nav>
+    <div class="imagebg "
+      style=" background-image: url(images/home-5-slide-1.jpg); background-position: center; background-size: cover; background-repeat: no-repeat; height: 665px">
+      <div class="flex justify-left items-center h-full w-full ">
+        <div class="pl-10 2xl:pl-44">
+          <h2 class="bg-black text-white text-2xl font-bold p-2 w-fit lg:p-3 lg:text-4xl ">NOW AVAILABLE</h2>
+          <p class="py-2 text-3xl text-black lg:py-4 md:text-4xl lg:text-7xl ">EXCLUSIVE <span
+              class=" font-extrabold  ">MERCH</span> </p>
+          <button class="bg-red-600 text-white text-sm px-8 py-3   lg:px-12 lg:py-4 lg:text-md">SHOP NOW</button>
+        </div>
+      </div>
+      <!-- Mobile menu, show/hide based on menu open state. -->
+      <div class="lg:hidden" role="dialog" aria-modal="true">
+        <!-- Background backdrop, show/hide based on slide-over state. -->
+        <div class="fixed inset-0 z-10 d-non " style="display: none;"></div>
+        <div
+          class="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10"
+          style="display: none;">
+          <div class="flex items-center justify-between">
+            <a href="#" class="-m-1.5 p-1.5">
+              <span class="sr-only">Your Company</span>
+              <img class="h-8 w-auto" src="images/logo-dark-a.png" alt="">
+            </a>
+            <button type="button" class="-m-2.5 rounded-md p-2.5 text-gray-700">
+              <span class="sr-only">Close menu</span>
+              <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                aria-hidden="true" data-slot="icon">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+          <div class="mt-6 flow-root">
+            <div class="-my-6 divide-y divide-gray-500/10">
+              <div class="space-y-2 py-6">
+                <div class="-mx-3">
+                  <button type="button"
+                    class="flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
+                    aria-controls="disclosure-1" aria-expanded="false">
+                    Product
+                    <!--
+                        Expand/collapse icon, toggle classes based on menu open state.
+      
+                        Open: "rotate-180", Closed: ""
+                      -->
+                    <svg class="h-5 w-5 flex-none" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"
+                      data-slot="icon">
+                      <path fill-rule="evenodd"
+                        d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z"
+                        clip-rule="evenodd" />
+                    </svg>
+                  </button>
+                  <!-- 'Product' sub-menu, show/hide based on menu state. -->
+
+
+                </div>
+                <a href="#"
+                  class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">Features</a>
+                <a href="#"
+                  class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">Marketplace</a>
+                <a href="#"
+                  class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">Company</a>
+              </div>
+              <div class="py-6">
+                <a href="#"
+                  class="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">Log
+                  in</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- section2 -->
+
+  <div class="w-full mt-20">
+
+    <div class="text-center flex  justify-center">
+      <div class="">
+        <h2 class="text-3xl font-medium sm:text-4xl">EXCLUSIVE MERCH</h2>
+        <p class="pt-3 sm:text-2xl">Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+        <!--  -->
+        <div class="w-full mt-16">
+
+
+
+          <div class=" parent  lg:gap-6">
+
+            <div class="bg-white class-hover  relative  sameclass  ">
+              <div>
+                <img class="w-full" src="images/product-9-300x340.jpg" alt="">
+
+              </div>
+              <div class="addtocard hidden absolute bottom-[44px] w-full">
+                <h2 class=" text-white text-xm bg-black  hover:bg-red-600 p-3 "> ADD TO CARD <i
+                    class="fa fa-shopping-cart" style="padding-left: 30px;"></i> </h2>
+              </div>
+              <div class="bg-white text-xl">
+                <h2 class="flex justify-between py-2 font-semibold hover:text-red-500 "> <span>Cotton Shirt</span> <span
+                    class="text-red-600">$12.00</span></h2>
+              </div>
+              <!--  -->
+            </div>
+
+            <!--  -->
+
+
+            <!-- 2 -->
+            <div class="bg-white class-hover  relative   sameclass ">
+              <div>
+                <img class="w-full" src="images/product-10-300x340.jpg" alt="">
+
+              </div>
+              <div class="addtocard hidden absolute bottom-[44px] w-full">
+                <h2 class=" text-white text-xm bg-black  hover:bg-red-600 p-3 "> ADD TO CARD <i
+                    class="fa fa-shopping-cart" style="padding-left: 30px;"></i> </h2>
+              </div>
+              <div class="bg-white text-xl">
+                <h2 class=" justify-between py-2 font-semibold hover:text-red-500 "> <span>Cotton Shirt</span> <span
+                    class="text-red-600">$12.00</span></h2>
+              </div>
+              <!--  -->
+            </div>
+
+            <!-- 3 -->
+            <div class="bg-white class-hover  relative  sameclass  ">
+              <div>
+                <img class="w-full" src="images/product-11-300x340.jpg" alt="">
+
+              </div>
+              <div class="addtocard hidden absolute bottom-[44px] w-full">
+                <h2 class=" text-white text-xm bg-black  hover:bg-red-600 p-3 "> ADD TO CARD <i
+                    class="fa fa-shopping-cart" style="padding-left: 30px;"></i> </h2>
+              </div>
+              <div class="bg-white text-xl">
+                <h2 class=" justify-between py-2 font-semibold hover:text-red-500 "> <span>Cotton Shirt</span> <span
+                    class="text-red-600">$12.00</span></h2>
+              </div>
+              <!--  -->
+            </div>
+
+            <!-- 4 -->
+            <div class="bg-white class-hover  relative  sameclass ">
+              <div>
+                <img class="w-full" src="images/product-12-300x340.jpg" alt="">
+
+              </div>
+              <div class="addtocard hidden absolute bottom-[44px] w-full">
+                <h2 class=" text-white text-xm bg-black  hover:bg-red-600 p-3 "> ADD TO CARD <i
+                    class="fa fa-shopping-cart" style="padding-left: 30px;"></i> </h2>
+              </div>
+              <div class="bg-white text-xl">
+                <h2 class=" justify-between py-2 font-semibold hover:text-red-500 "> <span>Cotton Shirt</span> <span
+                    class="text-red-600">$12.00</span></h2>
+              </div>
+              <!--  -->
+            </div>
+            <!-- dflex -->
+          </div>
+          <!--
+  -->
+
+          <!--  -->
+          <div class="py-10">
+            <div class="  parent lg:gap-1 ">
+
+
+
+
+              <div class="bg-white class-hover  relative sameclass  ">
+                <div>
+                  <img class="w-full" src="images/product-14-300x340.jpg" alt="">
+
+                </div>
+                <div class="addtocard hidden absolute bottom-[44px] w-full">
+                  <h2 class=" text-white text-xm bg-black  hover:bg-red-600 p-3 "> ADD TO CARD <i
+                      class="fa fa-shopping-cart" style="padding-left: 30px;"></i> </h2>
+                </div>
+                <div class="bg-white text-xl">
+                  <h2 class="flex justify-between py-2 font-semibold hover:text-red-500 "> <span>Cotton Shirt</span>
+                    <span class="text-red-600">$12.00</span>
+                  </h2>
+                </div>
+                <!--  -->
+              </div>
+
+
+
+
+              <!--  -->
+
+
+              <!-- 2 -->
+              <div class="bg-white class-hover  relative sameclass">
+                <div>
+                  <img class="w-full" src="images/product-15-300x340.jpg" alt="">
+
+                </div>
+                <div class="addtocard hidden absolute bottom-[44px] w-full">
+                  <h2 class=" text-white text-xm bg-black  hover:bg-red-600 p-3 "> ADD TO CARD <i
+                      class="fa fa-shopping-cart" style="padding-left: 30px;"></i> </h2>
+                </div>
+                <div class="bg-white text-xl">
+                  <h2 class=" justify-between py-2 font-semibold hover:text-red-500 "> <span>Cotton Shirt</span> <span
+                      class="text-red-600">$12.00</span></h2>
+                </div>
+                <!--  -->
+              </div>
+
+              <!-- 3 -->
+              <div class="bg-white class-hover  relative  sameclass">
+                <div>
+                  <img class="w-full" src="images/product-3-300x340.jpg" alt="">
+
+                </div>
+                <div class="addtocard hidden absolute bottom-[44px] w-full">
+                  <h2 class=" text-white text-xm bg-black  hover:bg-red-600 p-3 "> ADD TO CARD <i
+                      class="fa fa-shopping-cart" style="padding-left: 30px;"></i> </h2>
+                </div>
+                <div class="bg-white text-xl">
+                  <h2 class=" justify-between py-2 font-semibold hover:text-red-500 "> <span>Cotton Shirt</span> <span
+                      class="text-red-600">$12.00</span></h2>
+                </div>
+                <!--  -->
+              </div>
+
+              <!-- 4 -->
+              <div class="bg-white class-hover  relative  sameclass">
+                <div>
+                  <img class="w-full" src="images/product-9-300x340.jpg" alt="">
+
+                </div>
+                <div class="addtocard hidden absolute bottom-[44px] w-full">
+                  <h2 class=" text-white text-xm bg-black  hover:bg-red-600 p-3 "> ADD TO CARD <i
+                      class="fa fa-shopping-cart" style="padding-left: 30px;"></i> </h2>
+                </div>
+                <div class="bg-white text-xl">
+                  <h2 class=" justify-between py-2 font-semibold hover:text-red-500 "> <span>Cotton Shirt</span> <span
+                      class="text-red-600">$12.00</span></h2>
+                </div>
+                <!--  -->
+              </div>
+              <!-- dflex -->
+            </div>
+
+          </div>
+
+          <!--  -->
+        </div>
+
+
+        <!--  -->
+      </div>
+    </div>
+
+    <!--  w-full lg:w:auto-->
+    <!-- 3rd section  -->
+    <div class="text-white w-full flex justify-end items-center "
+      style="background-image: url(images/parallax-7.jpg); background-position: center; background-repeat: no-repeat; background-size: cover; height: 800px;">
+      <div class="  lg:pr-48 lg:p-2 ">
+        <h2 class="text-white font-bold text-xl  lg:text-6xl">SOUNDCLOUD PLAYER</h2>
+        <p class="py-4 text-sm sm:text-lg r">Alienum phaedrum torquatos nec eu, vis detraxit periculis ex, nihil
+          expetendis in <br> mei. Mei an pericula euripidis, hinc partem ei est.</p>
+        <div class=" w-full  bg-white ">
+          <div class="bg-white  border-b-2  border-gray-200 ">
+            <img class="w-32" src=" images/artworks-000218178553-owuhqa-t200x200.jpg" alt="">
+          </div>
+          <!--flex  -->
+          <div class="flex  bg-white  items-center">
+            <div class="  pt-2 px-4 sm:px-8 ">
+              <img class="w-10 h-10 sm:w-12 sm:h-12" src="images/ay.jpg" alt="">
+            </div>
+            <div class="text-black pl-2 ">
+              <p class=" text-sm">EMMANUELLA - Good For You - Selena Gomez (Emmanuella X Combo0).. <span><i
+                    class="fas fa-wave-square text-gray-400 text-sm"></i> <span class="text-400">View track</span><i
+                    class="fas fa-play text-gray-400 text-sm"></i> 38.7k</span> </p>
+            </div>
+          </div>
+          <!--  -->
+          <!-- 2 -->
+          <div class="flex  bg-white py-2 items-center border-b-2  border-t-2 border-gray-200 ">
+            <div class="pt-2 px-4 sm:px-8 ">
+              <img class="w-10 h-10 sm:w-12 sm:h-12" src="images/artworks-000052582761-3i2kt6-tiny.jpg" alt="">
+            </div>
+            <div class="text-black">
+              <p class=" text-sm">EMMANUELLA - Good For You - Selena Gomez (Emmanuella X Combo0).<i
+                  class="fas fa-play text-gray-400 text-sm"></i> 38.7k</p>
+            </div>
+          </div>
+          <!--  -->
+          <div class="flex bg-white pt-2  items-center ">
+            <div class="pt-2 px-4 sm:px-8 w-[17%]">
+              <img class="w-10 h-10 sm:w-12 sm:h-12" src="images/artworks-000131355913-v8x6bt-tiny.jpg" alt="">
+            </div>
+            <div class="flex justify-between w-[83%]">
+              <div class="text-black ">
+                <p class=" text-sm">EMMANUELLA Selena Gomez .</p>
+              </div>
+  
+              <div>
+                <span class="text-end text-black"> <i class="fas fa-wave-square text-gray-400 text-sm"></i> <i
+                    class="fas fa-play text-gray-400 text-sm"></i> 38.7k </span>
+              </div>
+            </div>
+
+          </div>
+          <!--  -->
+          <div class="flex justify-center py-2">
+            <img src="images/download.png" alt="">
+          </div>
+          <div class="bg-gray-200 ">
+            <div class="flex pl-4 pt-2 gap-3">
+              <div> <img src="images/avatars-000275237722-9q60zi-t50x50 (1).jpg" alt=""> </div>
+              <div class="text-black">
+                <h2 class="hover:font-bold">Shuffle </h2>
+                <h2 class="hover:font-bold">Shuffle</h2>
+              </div>
+
+
+            </div>
+            <p class="text-gray-500 font-semibold ">Privacy Policy</p>
+          </div>
+          <!--  -->
+        </div>
+      </div>
+    </div>
+    <!-- / -->
+    <!--     ................................. 4section ................................ -->
+    <div class="w-full xl:px-40 py-20 sm:px-10">
+      <div>
+        <h2 class="text-4xl font-semibold text-center">LATEST NEWS </h2>
+        <p class="text-xl text-center pb-5 mt-2 lg:pb-40">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        <div class=" md:flex gap-3  ">
+
+          <div class="md:w-1/2 lg:w-[30%]  ">
+
+            <div class="bg-gray-200 w-[100%]">
+              <div>
+                <img class="  " src="images/blog-masonry-image-18.jpg" alt="">
+              </div>
+              <div class="p-5">
+                <h2 class="text-2xl font-semibold  hover:text-red"> Rebirth Album</h2>
+                <p class="text-gray-500 ">Sep 28, 2016</p>
+                <p class="text-lg pt-5">Ex error omnium interpretaris pro, alia illum ea vim. Lorem ipsum dolor sit
+                  amet, te ridens gloriatur temporibus qui, per enim veritus probatus ad. Quo eu etiam exerci dolore,
+                  usu ...</p>
+              </div>
+            </div>
+          </div>
+          <!-- 2 -->
+          <div class="md:w-1/2 md:mt-[-0px]  lg:w-[70%] lg:mt-[-60px]">
+            <!--  -->
+            <div class=" lg:flex lg:gap-3 ">
+              <div class="mt-20 mb-5 md:w-full md:mt-0 lg:w-1/2 bg-gray-200 h-1/2  ">
+                <p class="flex justify-end">
+                  <i style="font-size: 40px; " class="fa fa-twitter text-blue-500 "></i>
+                </p>
+                <div class="text-center p-10 ">
+
+                  <h2 class="text-2xl font-semibold text-gray-500">@EdgeThemes</h2>
+                  <h2 class="text-2xl font-semibold text-black py-5 hover:text-red ">Live at DIA Festival</h2>
+                  <p class="text-sm border-b-2 border-gray-300 pb-7 ">Create an amazing website today with Hudson - A
+                    Personal, Professional, Advanced #WordPress Theme: https://t.co/64BECbnZ5l</p>
+                  <p class="pt-7">November 03, 2015</p>
+                </div>
+              </div>
+              <!--  -->
+              <div class="lg:w-1/2">
+                <div class="bg-gray-200 ">
+                  <div>
+                    <img class="  h-889px" src="images/blog-masonry-image-17.jpg" alt="">
+                  </div>
+                  <div class="p-5">
+                    <h2 class="text-2xl font-semibold  hover:text-red">Music Heals </h2>
+                    <p class="text-gray-500 ">Sep 28, 2016</p>
+                    <p class="text-lg pt-5">Ex error omnium interpretaris pro, alia illum ea vim. Lorem ipsum dolor sit
+                      amet, te ridens gloriatur temporibus qui, per enim veritus probatus ad. Quo eu etiam exerci
+                      dolore, usu ...</p>
+                  </div>
+                </div>
+              </div>
+
+
+              <!--  -->
+            </div>
+          </div>
+
+        </div>
+
+
+      </div>
+
+    </div>
+
+    <!-- section 5 -->
+    <div class=""
+      style="background-image: url(images/parallax-6.jpg);  background-position: center; background-size: cover; background-repeat: no-repeat; ">
+      <div class="upcoming-events py-20 ">
+        <center>
+          <h2 class="text-4xl text-white font-semibold ">UPCOMING EVENTS</h2>
+          <p class="text-white text-xl">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </center>
+        <!--  -->
+        <div>
+<div class="flex justify-center ">
+
+<div class="hver-effect md:w-[90%] lg:w-[80%] text-white  border-b-2 border-gray-400 pb-6  ">
+        <div class=" md:flex  md:items-center pt-10   ">
+          <!-- 1  div 1-->
+          <div class=" md:border-r-2 border-gray-400 md:w-[23%] lg:w-[20%] md:flex md:content-start  ">
+            <div class="flex  justify-center items-center gap-2 ">
+              <div>
+                <h2 class="text-6xl font-bold">10</h2>
+              </div>
+              <div class="md:ps-5 text-xl hver-effect">
+                <h2>May</h2>
+                <h2>Sun</h2>
+              </div>
+              <!-- <h2 class="ms-20 text-2xl font-semibold">Gärdet Open Air Stockholm – Sweeden</h2> -->
+            </div>
+          </div>
+
+          <!-- 2  div 2-->
+          <div class="md:w-[77%] lg:w-[80%]" >
+            <div class="md:flex md:items-center text-center ">
+              <div class="md:w-1/2">
+                <h2 class="hver-effect text-xl pt-4 md:text-2xl font-semibold text-white md:ps-5">Gärdet Open Air Stockholm – Sweeden</h2>
+
+              </div>
+              <!--  3-->
+              <div class="md:w-1/2 md:text-end">
+                <div class=" pt-4">
+                <button class="border-solid border-2 border-white px-10 py-3 text-white hover:bg-red-500">Buy
+                  Ticket</button>
+                </div>
+                </div>
+            </div>
+          </div>
+          <!--  -->
+
+        </div>
+
+
+        <!-- ...................................................... -->
+         
+      </div>
+
+    </div>
+<!-- .................................................. -->
+<div class="flex justify-center ">
+
+  <div class="hver-effect md:w-[90%] lg:w-[80%] text-white  border-b-2 border-gray-400 pb-6  ">
+          <div class=" md:flex  md:items-center pt-10   ">
+            <!-- 1  div 1-->
+            <div class=" md:border-r-2 border-gray-400 md:w-[23%] lg:w-[20%] md:flex md:content-start  ">
+              <div class="flex  justify-center items-center gap-2 ">
+                <div>
+                  <h2 class="text-6xl font-bold">10</h2>
+                </div>
+                <div class="md:ps-5 text-xl hver-effect">
+                  <h2>May</h2>
+                  <h2>Sun</h2>
+                </div>
+                <!-- <h2 class="ms-20 text-2xl font-semibold">Gärdet Open Air Stockholm – Sweeden</h2> -->
+              </div>
+            </div>
+  
+            <!-- 2  div 2-->
+            <div class="md:w-[77%] lg:w-[80%]">
+              <div class="md:flex md:items-center text-center ">
+                <div class="md:w-1/2">
+                  <h2 class="hver-effect text-xl pt-4 md:text-2xl font-semibold text-white md:ps-5">Gärdet Open Air Stockholm – Sweeden</h2>
+  
+                </div>
+                <!--  3-->
+                <div class="md:w-1/2 md:text-end">
+                  <div class=" pt-4">
+                  <button class="border-solid border-2 border-white px-10 py-3 text-white hover:bg-red-500">Buy
+                    Ticket</button>
+                  </div>
+                  </div>
+              </div>
+            </div>
+            <!--  -->
+  
+          </div>
+  
+  
+          <!-- ...................................................... -->
+           
+        </div>
+
+<!-- 3 -->
+ 
+        <!-- ...................................................... -->
+         
+      </div>
+
+
+
+      <!-- 3 -->
+      <div class="flex justify-center ">
+
+        <div class="hver-effect md:w-[90%] lg:w-[80%] text-white  border-b-2 border-gray-400 pb-6  ">
+                <div class=" md:flex  md:items-center pt-10   ">
+                  <!-- 1  div 1-->
+                  <div class=" md:border-r-2 border-gray-400 md:w-[23%] lg:w-[20%] md:flex md:content-start  ">
+                    <div class="flex  justify-center items-center gap-5 ">
+                      <div>
+                        <h2 class="text-6xl font-bold">10</h2>
+                      </div>
+                      <div class="md:ps-5 text-xl hver-effect">
+                        <h2>May</h2>
+                        <h2>Sun</h2>
+                      </div>
+                      <!-- <h2 class="ms-20 text-2xl font-semibold">Gärdet Open Air Stockholm – Sweeden</h2> -->
+                    </div>
+                  </div>
+        
+                  <!-- 2  div 2-->
+                  <div class="md:w-[77%] lg:w-[80%]">
+                    <div class="md:flex md:items-center text-center ">
+                      <div class="md:w-1/2">
+                        <h2 class="hver-effect text-xl pt-4 md:text-2xl font-semibold text-white md:ps-5">Gärdet Open Air Stockholm – Sweeden</h2>
+        
+                      </div>
+                      <!--  3-->
+                      <div class="md:w-1/2 md:text-end">
+                        <div class=" pt-4">
+                        <button class="border-solid border-2 border-white px-10 py-3 text-white hover:bg-red-500">Buy
+                          Ticket</button>
+                        </div>
+                        </div>
+                    </div>
+                  </div>
+                  <!--  -->
+        
+                </div>
+        
+        
+                <!-- ...................................................... -->
+                 
+              </div>
+       <!-- last div -->
+
+    </div>
+
+<!-- 4 -->
+<div class="flex justify-center ">
+
+  <div class="hver-effect md:w-[90%] lg:w-[80%] text-white  border-b-2 border-gray-400 pb-6  ">
+          <div class=" md:flex  md:items-center pt-10   ">
+            <!-- 1  div 1-->
+            <div class=" md:border-r-2 border-gray-400 md:w-[23%] lg:w-[20%] md:flex md:content-start  ">
+              <div class="flex  justify-center items-center gap-5 ">
+                <div>
+                  <h2 class="text-6xl font-bold">10</h2>
+                </div>
+                <div class="md:ps-5 text-xl hver-effect">
+                  <h2>May</h2>
+                  <h2>Sun</h2>
+                </div>
+                <!-- <h2 class="ms-20 text-2xl font-semibold">Gärdet Open Air Stockholm – Sweeden</h2> -->
+              </div>
+            </div>
+  
+            <!-- 2  div 2-->
+            <div class="md:w-[77%] lg:w-[80%]">
+              <div class="md:flex md:items-center text-center ">
+                <div class="md:w-1/2">
+                  <h2 class="hver-effect text-xl pt-4 md:text-2xl font-semibold text-white md:ps-5">Gärdet Open Air Stockholm – Sweeden</h2>
+  
+                </div>
+                <!--  3-->
+                <div class="md:w-1/2 md:text-end">
+                  <div class=" pt-4">
+                  <button class="border-solid border-2 border-white px-10 py-3 text-white hover:bg-red-500">Buy
+                    Ticket</button>
+                  </div>
+                  </div>
+              </div>
+            </div>
+            <!--  -->
+  
+          </div>
+  
+  
+          <!-- ...................................................... -->
+           
+        </div>
+    <!-- ............................ last div..................................................... -->
+     
+     
+      
+  </div>
+  <!-- 5 -->
+  <div class="flex justify-center ">
+
+    <div class="hver-effect md:w-[90%] lg:w-[80%] text-white  border-b-2 border-gray-400 pb-6  ">
+            <div class=" md:flex  md:items-center pt-10   ">
+              <!-- 1  div 1-->
+              <div class=" md:border-r-2 border-gray-400 md:w-[23%] lg:w-[20%] md:flex md:content-start  ">
+                <div class="flex  justify-center items-center gap-5 ">
+                  <div>
+                    <h2 class="text-6xl font-bold">10</h2>
+                  </div>
+                  <div class="md:ps-5 text-xl hver-effect">
+                    <h2>May</h2>
+                    <h2>Sun</h2>
+                  </div>
+                  <!-- <h2 class="ms-20 text-2xl font-semibold">Gärdet Open Air Stockholm – Sweeden</h2> -->
+                </div>
+              </div>
+    
+              <!-- 2  div 2-->
+              <div class="md:w-[77%] lg:w-[80%]">
+                <div class="md:flex md:items-center text-center ">
+                  <div class="md:w-1/2">
+                    <h2 class="hver-effect text-xl pt-4 md:text-2xl font-semibold text-white md:ps-5">Gärdet Open Air Stockholm – Sweeden</h2>
+    
+                  </div>
+                  <!--  3-->
+                  <div class="md:w-1/2 md:text-end">
+                    <div class=" pt-4">
+                    <button class="border-solid border-2 border-white px-10 py-3 text-white hover:bg-red-500">Buy
+                      Ticket</button>
+                    </div>
+                    </div>
+                </div>
+              </div>
+              <!--  -->
+    
+            </div>
+    
+    
+            <!-- ...................................................... -->
+             
+          </div>
+<!--  -->
+    </div>
+</div>
+
+ </div>
+</div>
+ <!--second last section  -->
+
+ <div class="w-full ">
+  <div class="text-black pt-20">
+    <center>
+      <h2 class="text-4xl font-semibold ">PICTURE GALLERY</h2>
+      <p class="text-xl">Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+    </center>
+<div class=" pt-10">
+  <div class="  autoflex3-img p-5 sm:p-0">
+    <div ><img class="w-[600px] md:w-[300px] xl:w-[400px]" src="images/home-5-image-gallery-1.jpg" alt=""></div>
+    <div  class="py-3 md:py-0"><img class="w-[600px]  md:w-[300px] xl:w-[400px]" src="images/home-5-image-gallery-2.jpg" alt=""></div>
+    <div class="md:py-4 lg:py-0 "><img class="w-[600px]  md:w-[300px] xl:w-[400px]" src="images/home-5-image-gallery-3.jpg" alt=""></div>
+  </div>
+  <!--  -->
+  <div class="pt-3"></div>
+  <div class=" autoflex3-img p-5 sm:p-0">
+    <div ><img  class="w-[600px]  md:w-[300px] xl:w-[400px]" src="images/home-5-image-gallery-4.jpg" alt=""></div>
+    <div class="py-3 md:py-0" ><img  class="w-[600px]  md:w-[300px] xl:w-[400px]" src="images/home-5-image-gallery-5.jpg" alt=""></div>
+    <div  class="md:pt-4 lg:pt-0"><img  class="w-[600px]  md:w-[300px] xl:w-[400px]" src="images/home-5-image-gallery-6.jpg" alt=""></div>
+  </div>
+</div>
+
+
+
+  </div>
+   </div>
+<style>
+  .bg-fotter{
+    background-image: linear-gradient(rgba(25, 0, 0, 0.7), rgba(0, 0, 5, 0.7), rgba(7, 8, 18, 0.7), rgba(0, 0, 0, 0.7)),  url(images/home-5-slide-2.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+  }
+</style>
+
+   <!--  -->
+   <div class="mt-10 py-40 bg-fotter flex flex-col justify-end  gap-10">
+    <h2 class="text-center pt- text-white  text-2xl font-semibold">"Reach Out for Assistance Anytime!" </h2>
+
+    <!--  -->
+    <div class=" flex flex-col mx-auto   text-lg bg-gray-900 p-2 md:p-10">
+      <input class="px-12 h-12 my-2 border border-1 outline-blue-600 border-gray-300 rounded-lg "  type="text" placeholder="Email Adress or phone number">
+
+      <input class="px-12 h-12 my-2 border border-1 outline-blue-600 border-gray-300 rounded-lg " type="password" placeholder="password">
+      
+      <button class="border-2 border-white text-white my-2 py-2 rounded-md font-bold cursor-pointer bg-green-500  hover:bg-green-700">Log In</button>
+      <span class="text-blue-600 text-center text-sm my-2 cursor-pointer hover:underline">Forgotten password?</span>
+      <hr class="my-2">
+      <button class=" text-white bg-green-500 my-2 py-2 rounded-md font-bold cursor-pointer w-fit px-4 mx-auto hover:bg-green-700">Creat New Account</button>
+      
+  </div>
+<!--  -->
+
+    <!--  -->
+   </div>
+  
+
+   <!--  -->
+   <div class="w-full  bg-gray-900 py-6 ">
+    <div class="flex justify-center items-center h-full">
+      <div class="lg:flex lg:gap-40">
+     <div>
+      <h2 class="text-white text-sm md:text-xl">© 2016 Qode Interactive, All Rights Reserved</h2>
+    </div>
+  <div>
+  <h2 class="text-white  text-sm md:text-xl text-center">Powered by WordPress</h2>
+  <h2 class="text-center pt-2"> 
+  <i   class="fa fa-twitter text-xl text-white "></i>
+  <i  class="fa fa-facebook text-xl text-white"></i>
+  <i  class="fa fa-whatsapp text-xl text-white"></i>
+  <i  class="fa fa-youtube text-xl text-white "></i>
+  </h2>
+  
+  </div>
+  <!--  -->
+      </div>
+    </div>
+   </div>
+  </body>
+
+
+</html>
